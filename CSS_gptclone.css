@@ -188,13 +188,10 @@ input:focus{
 }
 
 @keyframes height {
-    0%{
-        height: 10px;
+    from{
+        height: 0px;
     }
-    50%{
-        height: 100px;
-    }
-    100%{
-        height: 200px;
+    to{
+     height:fit-content;
     }
 }
