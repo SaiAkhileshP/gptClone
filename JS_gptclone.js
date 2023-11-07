@@ -1,11 +1,12 @@
-const API_KEY = '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';
 const sumbit = document.querySelector('#submit');
 const getinput = document.getElementById('input');
-const output = document.getElementById('output');
-const loading = document.getElementById('loading');
+
 //const newchat = document.getElementById('newchat');
 
 async function getMessage(){
+let API_KEY = "<Your Api Key>";
+const output = document.getElementById('output');
+const loading = document.getElementById('loading');
     console.log('clicked');
     //console.log(getinput);
     const userinput = getinput.value; 
@@ -34,13 +35,19 @@ async function getMessage(){
         const data = await responce.json();
         console.log(data);
         output.classList.remove('hide');//remove the hide class before start 
-        let display = data.choices[0].message.content;
-        output.innerText = display;
+        if(data.error.code === "invalid_api_key" || data.error.code == null){
+            output.innerText = `${data.error.code} OR ${data.error.message}`
+        }
+        else{
+            let display = data.choices[0].message.content;
+            output.innerText = display;
+        }
+        
 
         
 
     } catch (error) {
-        console.error(error);
+        // console.error(error);
         
     }
 }
