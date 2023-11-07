@@ -77,8 +77,8 @@ nav{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    position: relative;
+     position: absolute;
+    position: relative; 
     margin-top: 300px;
     
     
@@ -107,9 +107,9 @@ nav{
     align-items: center;
     position: absolute;
     border-radius: 15px;
-    animation:fade 2s;
-    animation: height 2s;
-    height: 200px;
+    animation:fade ease-in-out 3s;
+    animation: height ease-in-out 2s;
+    /* height: 200px; */
         
 }
 #output::-webkit-scrollbar{
@@ -188,10 +188,11 @@ input:focus{
 }
 
 @keyframes height {
-    from{
+    0%{
         height: 0px;
     }
-    to{
-     height:fit-content;
+    
+    100%{
+        height: fit-content;
     }
 }
